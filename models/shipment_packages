@@ -1,0 +1,11 @@
+from database import db
+class ShipmentPackage(db.Model):
+    __tablename__ = "shipment_packages"
+    id =  db.Column (db.Integer,primary_key=True)
+    shipment_id = db.Column(db.Integer,db.ForeignKey("shipments.id"))
+    package_id =db.Column(db.Integer,db.ForeignKey("packages.id"))
+    loaded_at = db.Column(db.DateTime ,nullable=False,default=datetime.now)
+    loaded_location = db.Column(db.String)
+    description = db.Column(db.String)
+    shipment_cost = db.Column(db.Float)
+
